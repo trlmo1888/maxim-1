@@ -648,47 +648,55 @@
             </div>
         </div>
 
-        <!-- Perform Screen -->
+        <!-- Perform Screen - Step 1: Select Suit -->
         <div id="performScreen" class="perform-screen">
             <div class="header">
                 <button class="back-button" onclick="showMainScreen()">←</button>
-                <div class="header-title">Seleccionar Carta</div>
+                <div class="header-title">Seleccionar Palo</div>
             </div>
 
             <div class="card-selector-section">
-                <div class="section-label">Selecciona el Palo</div>
+                <div class="section-label">Elige el Palo de la Carta</div>
                 <div class="suits-grid">
-                    <button class="suit-button" onclick="selectSuit('hearts')">♥</button>
-                    <button class="suit-button" onclick="selectSuit('diamonds')">♦</button>
-                    <button class="suit-button" onclick="selectSuit('clubs')">♣</button>
-                    <button class="suit-button" onclick="selectSuit('spades')">♠</button>
-                </div>
-
-                <div class="section-label">Selecciona el Valor</div>
-                <div class="ranks-grid">
-                    <button class="rank-button" onclick="selectRank('A')">A</button>
-                    <button class="rank-button" onclick="selectRank('2')">2</button>
-                    <button class="rank-button" onclick="selectRank('3')">3</button>
-                    <button class="rank-button" onclick="selectRank('4')">4</button>
-                    <button class="rank-button" onclick="selectRank('5')">5</button>
-                    <button class="rank-button" onclick="selectRank('6')">6</button>
-                    <button class="rank-button" onclick="selectRank('7')">7</button>
-                    <button class="rank-button" onclick="selectRank('8')">8</button>
-                    <button class="rank-button" onclick="selectRank('9')">9</button>
-                    <button class="rank-button" onclick="selectRank('10')">10</button>
-                    <button class="rank-button" onclick="selectRank('J')">J</button>
-                    <button class="rank-button" onclick="selectRank('Q')">Q</button>
-                    <button class="rank-button" onclick="selectRank('K')">K</button>
+                    <button class="suit-button" onclick="selectSuitAndNext('hearts')">♥</button>
+                    <button class="suit-button" onclick="selectSuitAndNext('diamonds')">♦</button>
+                    <button class="suit-button" onclick="selectSuitAndNext('clubs')">♣</button>
+                    <button class="suit-button" onclick="selectSuitAndNext('spades')">♠</button>
                 </div>
             </div>
+        </div>
 
-            <button class="calculate-button" onclick="calculateReveals()">Calcular</button>
+        <!-- Perform Screen - Step 2: Select Rank -->
+        <div id="rankScreen" class="perform-screen">
+            <div class="header">
+                <button class="back-button" onclick="showPerformScreen()">←</button>
+                <div class="header-title">Seleccionar Valor</div>
+            </div>
+
+            <div class="card-selector-section">
+                <div class="section-label">Elige el Valor de la Carta</div>
+                <div class="ranks-grid">
+                    <button class="rank-button" onclick="selectRankAndCalculate('A')">A</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('2')">2</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('3')">3</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('4')">4</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('5')">5</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('6')">6</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('7')">7</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('8')">8</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('9')">9</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('10')">10</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('J')">J</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('Q')">Q</button>
+                    <button class="rank-button" onclick="selectRankAndCalculate('K')">K</button>
+                </div>
+            </div>
         </div>
 
         <!-- Results Screen -->
         <div id="resultsScreen" class="results-screen">
             <div class="header">
-                <button class="back-button" onclick="showPerformScreen()">←</button>
+                <button class="back-button" onclick="showMainScreen()">←</button>
                 <div class="header-title">Revelaciones</div>
             </div>
 
