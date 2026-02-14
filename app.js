@@ -79,6 +79,11 @@ function showMainScreen() {
 
 function showPerformScreen() {
     showScreen('performScreen');
+    resetSelection();
+}
+
+function showRankScreen() {
+    showScreen('rankScreen');
 }
 
 function showResultsScreen() {
@@ -86,6 +91,40 @@ function showResultsScreen() {
 }
 
 // Card Selection
+// Card Selection - Step by Step
+function selectSuitAndNext(suit) {
+    state.selectedSuit = suit;
+    vibrate(50);
+    
+    // Highlight selected suit
+    document.querySelectorAll('.suit-button').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    
+    // Wait a moment for visual feedback, then go to next screen
+    setTimeout(() => {
+        showRankScreen();
+    }, 200);
+}
+
+function selectRankAndCalculate(rank) {
+    state.selectedRank = rank;
+    vibrate(50);
+    
+    // Highlight selected rank
+    document.querySelectorAll('.rank-button').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    
+    // Wait a moment for visual feedback, then calculate
+    setTimeout(() => {
+        calculateReveals();
+    }, 200);
+}
+
+// Old functions (keep for compatibility)
 function selectSuit(suit) {
     state.selectedSuit = suit;
     document.querySelectorAll('.suit-button').forEach(btn => {
