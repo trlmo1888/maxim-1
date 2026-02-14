@@ -51,6 +51,12 @@ class IOSTimer {
                     </div>
                 </div>
 
+                <div class="timer-quick-buttons">
+                    <button class="timer-quick-btn" onclick="iosTimer.setQuickTime(0, 0, 15)">15s</button>
+                    <button class="timer-quick-btn" onclick="iosTimer.setQuickTime(0, 0, 30)">30s</button>
+                    <button class="timer-quick-btn" onclick="iosTimer.setQuickTime(0, 1, 0)">1 min</button>
+                </div>
+
                 <div class="timer-buttons">
                     <button class="timer-action-btn timer-cancel-btn" onclick="iosTimer.close()">Cancelar</button>
                     <button class="timer-action-btn timer-start-btn" onclick="iosTimer.start()">Iniciar</button>
@@ -180,6 +186,23 @@ class IOSTimer {
     close() {
         document.getElementById('timerModal').classList.remove('active');
         this.reset();
+    }
+
+    setQuickTime(hours, minutes, seconds) {
+        // Set the time
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
+        
+        // Update the pickers visually
+        this.scrollToValue('hoursPicker', hours);
+        this.scrollToValue('minutesPicker', minutes);
+        this.scrollToValue('secondsPicker', seconds);
+        
+        // Visual feedback
+        if ('vibrate' in navigator) {
+            navigator.vibrate(30);
+        }
     }
 
     start() {
